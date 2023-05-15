@@ -46,6 +46,7 @@ router.post('/book', async (req, res) => {
 
 router.post('/checkbooking', async (req, res) => {
   try {
+    console.log('hekki')
     const { product_id: productId, date: bookingDate,variant_title,open_time,close_time,gap_time } = req.body
     let openingTime = open_time;
     let openMoment = moment(openingTime, "hh:mm a").utcOffset(0,false).format()
