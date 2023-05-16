@@ -357,8 +357,9 @@ router.post('/custom-form', async(req,res)=>{
     return res.status(404).json({order:false})
   }
   if(product.isWeaverFormFilled ===  null){
-    const start = moment(`${product.bookingDate} ${product.startTime}`)
-    const end = product.endTime
+    const {startTime, endTime} = product;
+    const start = moment(startTime, 'hh:mm A').add(30, "minutes").format("hh:mm A")
+      const end = moment(endTime, 'hh:mm A').subtract(30, "minutes").format("hh:mm A")
     return res.status(200).json({order:true,title:product.productTitle,productId:product.productId,price:product.price,start, end})
   }
   return res.status(500).json("internal server error")
