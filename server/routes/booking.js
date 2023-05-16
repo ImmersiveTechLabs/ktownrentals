@@ -16,7 +16,7 @@ router.post('/book', async (req, res) => {
     const duration = parseInt(variant_title) + 0.5 // Adding 0.5 will add half hour to the booking date
     const date = properties?.find((p) => p.name === "Date") //booking Date Sent By User
     const time = properties?.find((p) => p.name === "Time")// booking Time Sent By User
-    const wavierForm = req.body.note_attributes?.find((note)=>note.name === "Wavier");
+    // const waiverForm = req.body.note_attributes?.find((note)=>note.name === "Wavier");
     const bookingDate = moment(date.value).format("YYYY-MM-DD")
     const timeInMoment = moment(time.value, 'hh:mm A');
     const start = timeInMoment.clone().subtract(30, 'minutes').format('hh:mm A');
@@ -33,7 +33,7 @@ router.post('/book', async (req, res) => {
       orderNumber,
       variantId,
       createdAt,
-      isWavierFormFilled:wavierForm ? wavierForm.value : null,
+      isWaiverFormFilled:null,
     })
     res.status(200).json(product)
   }
@@ -356,7 +356,7 @@ router.post('/custom-form', async(req,res)=>{
   if(!product){
     return res.status(404).json({order:false})
   }
-  if(product.isWavierFormFilled ===  null){
+  if(product.isWaiverFormFilled ===  null){
     const {startTime, endTime, duration,productTitle,productId,price} = product;
     const start = moment(startTime, 'hh:mm A').add(30, "minutes").format("hh:mm A")
     const end = moment(endTime, 'hh:mm A').subtract(30, "minutes").format("hh:mm A")
@@ -375,12 +375,12 @@ router.post('/custom-form-submit',async (req,res)=>{
 
     const order = await OrderModel.findOne({
       orderNumber:`#${orderId}`,
-      isWavierFormFilled:null
+      isWaiverFormFilled:null
     })
     if(!order){
       return res.status(404).json('order not found')
     }
-    order.isWavierFormFilled = formUrl;
+    order.isWaiverFormFilled = formUrl;
     await order.save()
     return res.status(200).json('Success')
   }
