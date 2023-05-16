@@ -26,7 +26,7 @@ import orderRoute from './routes/order.js'
 import productsRoute from './routes/products.js'
 import calenderRoute from './routes/calender.js'
 import cors from 'cors'
-
+console.log('hamza')
 
 setupCheck(); // Run a check to ensure everything is setup properly
 
