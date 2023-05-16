@@ -48,7 +48,6 @@ router.post('/create', async(req,res)=>{
           },
           financial_status: "pending",
           send_receipt:true,
-          test:true
         }
       }
     })

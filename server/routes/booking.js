@@ -13,7 +13,6 @@ router.post('/book', async (req, res) => {
   try {
     const { line_items, name: orderNumber, created_at: createdAt, customer } = req.body;
     const { properties, product_id, variant_title, title, variant_id: variantId } = line_items[0]
-    console.log(properties)
     const duration = parseInt(variant_title) + 0.5 // Adding 0.5 will add half hour to the booking date
     const date = properties?.find((p) => p.name === "Date") //booking Date Sent By User
     const time = properties?.find((p) => p.name === "Time")// booking Time Sent By User
@@ -357,7 +356,11 @@ router.post('/custom-form', async(req,res)=>{
     return res.status(404).json({order:false})
   }
   if(product.isWeaverFormFilled ===  null){
-    return res.status(200).json({order:true,title:product.productTitle,productId:product.productId,price:product.price,start:product.startTime, end:product.endTime,})
+    const start = moment(product.startTime).subtract(30, 'minutes').format('hh:mm A');
+    const end = moment(product.endTime).add(30, 'minutes').format('hh:mm A');
+
+
+    return res.status(200).json({order:true,title:product.productTitle,productId:product.productId,price:product.price,start, end})
   }
   return res.status(500).json("internal server error")
 }
