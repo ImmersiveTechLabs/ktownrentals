@@ -93,7 +93,19 @@ router.post('/create', (req, res) => {
                end = line_item_date_time.slice(0, 11) + (parseInt(line_item_date_time.slice(11, 13)) + 3) + line_item_date_time.slice(13, 19);
                } else if (variant == '4') {
                    end = line_item_date_time.slice(0, 11) + (parseInt(line_item_date_time.slice(11, 13)) + 4) + line_item_date_time.slice(13, 19);
-                   } else if (variant == '8') {
+                   }
+
+
+                   else if (variant == '5') {
+                    end = line_item_date_time.slice(0, 11) + (parseInt(line_item_date_time.slice(11, 13)) + 5) + line_item_date_time.slice(13, 19);
+                    }
+
+                    else if (variant == '6') {
+                        end = line_item_date_time.slice(0, 11) + (parseInt(line_item_date_time.slice(11, 13)) + 6) + line_item_date_time.slice(13, 19);
+                        }
+
+
+                   else if (variant == '8') {
                        end = line_item_date_time.slice(0, 11) + (parseInt(line_item_date_time.slice(11, 13)) + 8) + line_item_date_time.slice(13, 19);
                        }
 
