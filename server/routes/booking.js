@@ -357,7 +357,7 @@ router.post('/custom-form', async(req,res)=>{
     return res.status(404).json({order:false})
   }
   if(product.isWeaverFormFilled ===  null){
-    const start = moment()
+    const start = moment(product.endTime)
     const end = product.endTime
     return res.status(200).json({order:true,title:product.productTitle,productId:product.productId,price:product.price,start, end})
   }
