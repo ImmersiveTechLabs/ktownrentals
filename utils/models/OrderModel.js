@@ -31,7 +31,7 @@ const orderSchema = new mongoose.Schema({
     email:{
         type:Object,
     },
-    isWaiverrFormFilled:{
+    isWaiverFormFilled:{
         type:String,
     },
     price:{
