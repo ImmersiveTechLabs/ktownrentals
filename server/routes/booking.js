@@ -33,7 +33,7 @@ router.post('/book', async (req, res) => {
       orderNumber,
       variantId,
       createdAt,
-      isWeaverFormFilled:wavierForm ? wavierForm.value : null,
+      isWavierFormFilled:wavierForm ? wavierForm.value : null,
     })
     res.status(200).json(product)
   }
@@ -356,7 +356,7 @@ router.post('/custom-form', async(req,res)=>{
   if(!product){
     return res.status(404).json({order:false})
   }
-  if(product.isWeaverFormFilled ===  null){
+  if(product.isWavierFormFilled ===  null){
     const {startTime, endTime, duration,productTitle,productId,price} = product;
     const start = moment(startTime, 'hh:mm A').add(30, "minutes").format("hh:mm A")
     const end = moment(endTime, 'hh:mm A').subtract(30, "minutes").format("hh:mm A")
@@ -375,12 +375,12 @@ router.post('/custom-form-submit',async (req,res)=>{
 
     const order = await OrderModel.findOne({
       orderNumber:`#${orderId}`,
-      isWeaverFormFilled:null
+      isWavierFormFilled:null
     })
     if(!order){
       return res.status(404).json('order not found')
     }
-    order.isWeaverFormFilled = formUrl;
+    order.isWavierFormFilled = formUrl;
     await order.save()
     return res.status(200).json('Success')
   }

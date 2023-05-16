@@ -31,7 +31,7 @@ const orderSchema = new mongoose.Schema({
     email:{
         type:Object,
     },
-    isWeaverFormFilled:{
+    isWavierFormFilled:{
         type:String,
     },
     price:{
@@ -40,8 +40,6 @@ const orderSchema = new mongoose.Schema({
     licenseNumber:{
         type:String,
     },
-},{
-    expireAfterSeconds:'60'
 })
 
 export default mongoose.model('Order', orderSchema)

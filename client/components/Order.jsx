@@ -23,7 +23,7 @@ import EditOrder from './EditOrder';
       useIndexResourceState(orders);
 
     const rowMarkup = orders?.map((o,index) => {
-      const {productTitle,_id, orderNumber, bookingDate, startTime, endTime,isWeaverFormFilled} = o
+      const {productTitle,_id, orderNumber, bookingDate, startTime, endTime,isWavierFormFilled} = o
       const start = moment(startTime, 'hh:mm A').add(30, "minutes").format("hh:mm A")
       const end = moment(endTime, 'hh:mm A').subtract(30, "minutes").format("hh:mm A")
       return(
@@ -37,8 +37,8 @@ import EditOrder from './EditOrder';
           <IndexTable.Cell>{start} - {end}</IndexTable.Cell>
           <IndexTable.Cell>
             {
-            isWeaverFormFilled ?
-             <a target='blank' href={isWeaverFormFilled}>Yes</a>
+            isWavierFormFilled ?
+             <a target='blank' href={isWavierFormFilled}>Yes</a>
              :
            <a target='blank' href={`https://kebc.ca/pages/k-town-rentals-waiver-form?order=${orderNumber.split('#')[1]}`}>No</a>
            }
