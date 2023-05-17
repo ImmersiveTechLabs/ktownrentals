@@ -307,7 +307,7 @@ router.put('/change',verifyRequest, async (req, res) => {
         <table>
         <tbody>
         <tr>
-        <td><img data-bit="iit" class="CToWUd" height="60" width="60" align="left" src="https://ci4.googleusercontent.com/proxy/sNFQBeuF52MWrh1mF4hH73gmj9JqgAfSNyAMrJJ99iMlIkNBRDi16W-vrO2hbwyi0zdwKYWbzgcTpHy88kEewHOut1ymD7F1tAFcWmruT4brzNGGaTzi0QyAXEtYpKE0YuDSNtEgopFUndUEKoSrc23sRjtVdwUc00mzDONHhnn94fb1RZo-WDV5unKcmd1r3NZ5W7kBFg=s0-d-e1-ft#https://cdn.shopify.com/s/files/1/0756/2018/8435/files/S2aS2b_2b1f8af3-ec66-4af6-847a-2c3ca8db8cbb_compact_cropped.jpg?v=1683406644"></td>
+        <td><br></td>
         <td>
         <p><span>${productTitle}</span><br><span></span></p>
         <p>Date: ${bookingDate}</p>
