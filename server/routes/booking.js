@@ -238,7 +238,7 @@ router.put('/change',verifyRequest, async (req, res) => {
         <p>Date: ${bookingDate}</p>
         <p>Start Time: ${start}</p>
         <p>End Time: ${end}</p>
-        <p>Price: ${price}</p>
+        <p>Price: $${price}</p>
       </div>
       `
       })
