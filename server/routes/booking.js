@@ -229,113 +229,17 @@ router.put('/change',verifyRequest, async (req, res) => {
       sendEmail({
         email:order.email,
         subject:"Booking Update",
-        text:`<table class="m_4944535336611062105header">
-        <tbody>
-        <tr>
-        <td><center>
-        <table class="m_4944535336611062105container">
-        <tbody>
-        <tr>
-        <td>
-        <table>
-        <tbody>
-        <tr>
-        <td class="m_4944535336611062105shop-name__cell"><img data-bit="iit" class="CToWUd a6T" width="154" alt="K Town Boat Rental" src="https://ci3.googleusercontent.com/proxy/ysPhRbdSt8aR8fTDZBGkzEyhENZPZm07qPwXaUgd4esbMl0my8Y-FD_q3Xr82oUdRN02KlYdp-XD1ssJS1rrtrFgeEaKJ--BB86lUrqxyb54U7wj9xT60TpcGtrCOKU1-9qI=s0-d-e1-ft#https://cdn.shopify.com/s/files/1/0756/2018/8435/files/Ktown_logo_2_4997.png?393" tabindex="0"></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td align="right" class="m_4944535336611062105order-number__cell"><span>${orderNumber}</span></td>
-        </tr>
-        </tbody>
-        </table>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-        </center></td>
-        </tr>
-        </tbody>
-        </table>
-        <table>
-        <tbody>
-        <tr>
-        <td><center>
-        <table class="m_4944535336611062105container">
-        <tbody>
-        <tr>
-        <td>
-        <h2>Your Booking has been updated.&nbsp;</h2>
-        <table>
-        <tbody>
-        <tr>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        </tr>
-        </tbody>
-        </table>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-        </center></td>
-        </tr>
-        </tbody>
-        </table>
-        <table>
-        <tbody>
-        <tr>
-        <td><center>
-        <table class="m_4944535336611062105container">
-        <tbody>
-        <tr>
-        <td>
-        <h3>Updated Details</h3>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-        <table class="m_4944535336611062105container">
-        <tbody>
-        <tr>
-        <td>
-        <table>
-        <tbody>
-        <tr>
-        <td>
-        <table>
-        <tbody>
-        <tr>
-        <td><br></td>
-        <td>
-        <p><span>${productTitle}</span><br><span></span></p>
+        text:`<div style="padding:10px;">
+        <img style="width:200px;" src="https://ci3.googleusercontent.com/proxy/ysPhRbdSt8aR8fTDZBGkzEyhENZPZm07qPwXaUgd4esbMl0my8Y-FD_q3Xr82oUdRN02KlYdp-XD1ssJS1rrtrFgeEaKJ--BB86lUrqxyb54U7wj9xT60TpcGtrCOKU1-9qI=s0-d-e1-ft#https://cdn.shopify.com/s/files/1/0756/2018/8435/files/Ktown_logo_2_4997.png?393" tabindex="0" />
+        <h1>Your booking has been updated</h1>
+        <h2 style="font-weight:normal;">Updated Details </h2>
+        <p>${productTitle}S</p>
         <p>Date: ${bookingDate}</p>
-        <div>
-        <dl>
-        <dt>Start Time: ${start}</dt>
-        <dt>End Time: ${end}</dt>
-        </dl>
-        </div>
-        </td>
-        <td>
-        <p align="right">$${price}</p>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-        <br></td>
-        </tr>
-        </tbody>
-        </table>
-        </center></td>
-        </tr>
-        </tbody>
-        </table>`
+        <p>Start Time: ${start}</p>
+        <p>End Time: ${end}</p>
+        <p>Price: ${price}</p>
+      </div>
+      `
       })
     }
     UpdateCalender({
