@@ -232,6 +232,7 @@ router.put('/change',verifyRequest, async (req, res) => {
         text:`<div style="padding:10px;">
         <img style="width:200px;" src="https://ci3.googleusercontent.com/proxy/ysPhRbdSt8aR8fTDZBGkzEyhENZPZm07qPwXaUgd4esbMl0my8Y-FD_q3Xr82oUdRN02KlYdp-XD1ssJS1rrtrFgeEaKJ--BB86lUrqxyb54U7wj9xT60TpcGtrCOKU1-9qI=s0-d-e1-ft#https://cdn.shopify.com/s/files/1/0756/2018/8435/files/Ktown_logo_2_4997.png?393" tabindex="0" />
         <h1>Your booking has been updated</h1>
+        <span style="font-weight:100;color:gray;">ORDER #100000</span>
         <h2 style="font-weight:normal;">Updated Details </h2>
         <p>${productTitle}S</p>
         <p>Date: ${bookingDate}</p>
