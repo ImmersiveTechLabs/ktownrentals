@@ -223,12 +223,119 @@ router.put('/change',verifyRequest, async (req, res) => {
     order.startTime = start
     order.endTime = end
     await order.save()
+    const {orderNumber,productTitle,price} = order
     res.status(200).json({})
     if(notification === true){
       sendEmail({
         email:order.email,
         subject:"Booking Update",
-        text:`<h1>Your Booking has been changed to ${bookingDate} at ${time} </h1>`
+        text:`<table class="m_4944535336611062105header">
+        <tbody>
+        <tr>
+        <td><center>
+        <table class="m_4944535336611062105container">
+        <tbody>
+        <tr>
+        <td>
+        <table>
+        <tbody>
+        <tr>
+        <td class="m_4944535336611062105shop-name__cell"><img data-bit="iit" class="CToWUd a6T" width="154" alt="K Town Boat Rental" src="https://ci3.googleusercontent.com/proxy/ysPhRbdSt8aR8fTDZBGkzEyhENZPZm07qPwXaUgd4esbMl0my8Y-FD_q3Xr82oUdRN02KlYdp-XD1ssJS1rrtrFgeEaKJ--BB86lUrqxyb54U7wj9xT60TpcGtrCOKU1-9qI=s0-d-e1-ft#https://cdn.shopify.com/s/files/1/0756/2018/8435/files/Ktown_logo_2_4997.png?393" tabindex="0"></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td align="right" class="m_4944535336611062105order-number__cell"><span>${orderNumber}</span></td>
+        </tr>
+        </tbody>
+        </table>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </center></td>
+        </tr>
+        </tbody>
+        </table>
+        <table>
+        <tbody>
+        <tr>
+        <td><center>
+        <table class="m_4944535336611062105container">
+        <tbody>
+        <tr>
+        <td>
+        <h2>Your Booking has been updated.&nbsp;</h2>
+        <table>
+        <tbody>
+        <tr>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        </tr>
+        </tbody>
+        </table>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </center></td>
+        </tr>
+        </tbody>
+        </table>
+        <table>
+        <tbody>
+        <tr>
+        <td><center>
+        <table class="m_4944535336611062105container">
+        <tbody>
+        <tr>
+        <td>
+        <h3>Updated Details</h3>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <table class="m_4944535336611062105container">
+        <tbody>
+        <tr>
+        <td>
+        <table>
+        <tbody>
+        <tr>
+        <td>
+        <table>
+        <tbody>
+        <tr>
+        <td><img data-bit="iit" class="CToWUd" height="60" width="60" align="left" src="https://ci4.googleusercontent.com/proxy/sNFQBeuF52MWrh1mF4hH73gmj9JqgAfSNyAMrJJ99iMlIkNBRDi16W-vrO2hbwyi0zdwKYWbzgcTpHy88kEewHOut1ymD7F1tAFcWmruT4brzNGGaTzi0QyAXEtYpKE0YuDSNtEgopFUndUEKoSrc23sRjtVdwUc00mzDONHhnn94fb1RZo-WDV5unKcmd1r3NZ5W7kBFg=s0-d-e1-ft#https://cdn.shopify.com/s/files/1/0756/2018/8435/files/S2aS2b_2b1f8af3-ec66-4af6-847a-2c3ca8db8cbb_compact_cropped.jpg?v=1683406644"></td>
+        <td>
+        <p><span>${productTitle}</span><br><span></span></p>
+        <p>Date: ${bookingDate}</p>
+        <div>
+        <dl>
+        <dt>Start Time: ${start}</dt>
+        <dt>End Time: ${end}</dt>
+        </dl>
+        </div>
+        </td>
+        <td>
+        <p align="right">$${price}</p>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <br></td>
+        </tr>
+        </tbody>
+        </table>
+        </center></td>
+        </tr>
+        </tbody>
+        </table>`
       })
     }
     UpdateCalender({
