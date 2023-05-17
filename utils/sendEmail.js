@@ -13,7 +13,7 @@ export const sendEmail = async (options)=>{
         from:process.env.SMTP_EMAIL,
         to:options.email,
         subject:options.subject,
-        text:options.text
+        html:options.text
     }
     await transporter.sendMail(mailOpts)
 

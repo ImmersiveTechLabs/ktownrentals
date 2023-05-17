@@ -228,7 +228,7 @@ router.put('/change',verifyRequest, async (req, res) => {
       sendEmail({
         email:order.email,
         subject:"Booking Update",
-        text:<h1>Your Booking has been changed to ${bookingDate} at ${time} </h1>
+        text:`<h1>Your Booking has been changed to ${bookingDate} at ${time} </h1>`
       })
     }
     UpdateCalender({
