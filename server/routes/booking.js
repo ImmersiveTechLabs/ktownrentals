@@ -234,11 +234,11 @@ router.put('/change',verifyRequest, async (req, res) => {
         <h1>Your booking has been updated</h1>
         <span style="font-weight:100;color:gray;">ORDER #100000</span>
         <h2 style="font-weight:normal;">Updated Details </h2>
-        <p>${productTitle}S</p>
-        <p>Date: ${bookingDate}</p>
-        <p>Start Time: ${start}</p>
-        <p>End Time: ${end}</p>
-        <p>Price: $${price}</p>
+        <p style="color:gray">${productTitle}S</p>
+        <p style="color:gray">Date: ${bookingDate}</p>
+        <p style="color:gray">Start Time: ${start}</p>
+        <p style="color:gray">End Time: ${end}</p>
+        <p style="color:gray">Price: $${price}</p>
       </div>
       `
       })
