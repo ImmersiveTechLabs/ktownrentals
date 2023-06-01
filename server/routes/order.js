@@ -9,16 +9,6 @@ router.get('/all', async(req,res)=>{
     try{
         const orders = await OrderModel.aggregate([
   {
-    $addFields: {
-      bookingDate: {
-        $dateFromString: {
-          dateString: "$bookingDate",
-          format: "%d-%m-%Y"
-        }
-      }
-    }
-  },
-  {
     $sort: {
       bookingDate: 1
     }
