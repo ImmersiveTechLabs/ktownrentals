@@ -7,7 +7,23 @@ import clientProvider from "../../utils/clientProvider.js";
 //get all orders
 router.get('/all', async(req,res)=>{
     try{
-        const orders = await OrderModel.find().sort({createdAt: -1})
+        const orders = await OrderModel.aggregate([
+  {
+    $addFields: {
+      bookingDate: {
+        $dateFromString: {
+          dateString: "$bookingDate",
+          format: "%d-%m-%Y"
+        }
+      }
+    }
+  },
+  {
+    $sort: {
+      bookingDate: 1
+    }
+  }
+])
         res.status(200).json(orders)
 
     }catch(err){
