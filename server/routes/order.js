@@ -10,7 +10,7 @@ router.get('/all', async(req,res)=>{
         const orders = await OrderModel.aggregate([
   {
     $sort: {
-      bookingDate: 1
+      bookingDate: -1
     }
   }
 ])
